@@ -105,6 +105,37 @@ jobs:
             rr-manager-*.spk
           if-no-files-found: error
 
+      - name: Generate Release Notes
+        if: startsWith(github.ref, 'refs/tags/') || github.ref == 'refs/heads/pre-release'
+        id: release_notes
+        run: |
+          # Generate custom release notes based on commits since last tag
+          NOTES=""
+          if [[ "${{ github.ref }}" == refs/heads/pre-release ]]; then
+            # Get the last tag for this branch (or any tag if none specific)
+            LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+            if [ -n "$LAST_TAG" ]; then
+              echo "Generating notes from $LAST_TAG to HEAD"
+              # Get commits since last tag, filter out merge/version bumps
+              COMMITS=$(git log --pretty=format:"%s" "$LAST_TAG"..HEAD | grep -v -E "^Merge|^Bump version|^chore:" || true)
+              if [ -n "$COMMITS" ]; then
+                NOTES="### Changes since $LAST_TAG\n\n$COMMITS"
+              else
+                NOTES="### No significant changes\n\n- Minor improvements and bug fixes"
+              fi
+            else
+              NOTES="### Initial pre-release\n\n- First development build"
+            fi
+          else
+            # For regular tags, use default behavior
+            NOTES=""
+          fi
+          
+          # Write to file for later use
+          echo "notes<<EOF" >> $GITHUB_OUTPUT
+          echo "$NOTES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
       - name: Release
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/') || github.ref == 'refs/heads/pre-release'
@@ -115,4 +146,5 @@ jobs:
           name: Release ${{ github.ref_name }}${{ github.ref == 'refs/heads/pre-release' && ' (dev)' || '' }}
           draft: false
           prerelease: ${{ github.event.inputs.prerelease || github.ref == 'refs/heads/pre-release' }}
-          generate_release_notes: true
+          body: ${{ steps.release_notes.outputs.notes }}
+          generate_release_notes: ${{ github.ref != 'refs/heads/pre-release' }}
