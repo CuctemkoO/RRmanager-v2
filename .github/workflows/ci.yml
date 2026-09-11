@@ -53,8 +53,8 @@ jobs:
 
       - name: Checkout SynoCommunity Source and Docker Image
         run: |
-          docker pull ghcr.io/synocommunity/spksrc
-          git clone --depth=1 https://github.com/SynoCommunity/spksrc.git
+          docker pull ghcr.io/digitalbox98/spksrc
+          git clone --depth=1 https://github.com/DigitalBox98/spksrc.git
 
           if [ -n "${{ inputs.spksrc }}" ]; then
             cd spksrc
@@ -71,7 +71,7 @@ jobs:
       - name: Build Package
         run: |
           ROOT_PATH="${{ github.workspace }}"
-          docker run -v ${ROOT_PATH}/spksrc:/spksrc -v ${ROOT_PATH}/rr-manager:/spksrc/spk/rr-manager -w /spksrc/spk/rr-manager ghcr.io/synocommunity/spksrc make arch-${{ matrix.target }}
+          docker run -v ${ROOT_PATH}/spksrc:/spksrc -v ${ROOT_PATH}/rr-manager:/spksrc/spk/rr-manager -w /spksrc/spk/rr-manager ghcr.io/digitalbox98/spksrc make arch-${{ matrix.target }}
 
       - name: Upload to Artifacts
         uses: actions/upload-artifact@v4
