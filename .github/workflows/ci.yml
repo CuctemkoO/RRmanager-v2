@@ -44,7 +44,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
 
       - name: Install Dependencies
         run: |
@@ -74,29 +74,28 @@ jobs:
             ghcr.io/synocommunity/spksrc:latest \
             make arch-${{ matrix.target }}
 
-      - name: Find and Rename SPK
+      - name: Rename SPK files
         run: |
-          echo "=== Searching for .spk files ==="
-          find spksrc-fork -name "*.spk" -type f
+          # Determine version from Makefile and prefix based on branch
+          VERSION=$(grep "^SPK_VERS" rr-manager/Makefile | cut -d' ' -f3)
+          REV=$(grep "^SPK_REV" rr-manager/Makefile | cut -d' ' -f3)
+          FULL_VERSION="${VERSION}-${REV}"
           
-          # Determine version and prefix based on branch
-          VERSION="3.1-01"
           PREFIX=""
           if [[ "${{ github.ref }}" == refs/heads/pre-release ]]; then
             PREFIX="dev-"
           fi
           
-          # Find the SPK file and rename it to the required format
-          SPK_FILE=$(find spksrc-fork -name "*.spk" -type f | head -1)
-          if [ -n "$SPK_FILE" ]; then
-            ARCH="${{ matrix.target }}"
-            NEW_NAME="rr-manager-${PREFIX}${ARCH}_${VERSION}.spk"
-            cp "$SPK_FILE" "$NEW_NAME"
-            echo "Created: $NEW_NAME"
-          else
-            echo "Error: No .spk file found!"
-            exit 1
-          fi
+          # Find and rename all SPK files
+          for SPK_FILE in spksrc-fork/packages/*.spk; do
+            if [ -f "$SPK_FILE" ]; then
+              ARCH="${{ matrix.target }}"
+              BASENAME=$(basename "$SPK_FILE" .spk)
+              NEW_NAME="rr-manager-${PREFIX}${ARCH}_${FULL_VERSION}.spk"
+              cp "$SPK_FILE" "$NEW_NAME"
+              echo "Created: $NEW_NAME"
+            fi
+          done
 
       - name: Upload to Artifacts
         uses: actions/upload-artifact@v4
