@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/T-REX-XP/RRManager.git"
+    "url": "git+https://github.com/CuctemkoO/RRmanager-v2.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "CuctemkoO",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/T-REX-XP/RRManager/issues"
+    "url": "https://github.com/CuctemkoO/RRmanager-v2/issues"
   },
-  "homepage": "https://github.com/T-REX-XP/RRManager#readme",
+  "homepage": "https://github.com/CuctemkoO/RRmanager-v2#readme",
   "devDependencies": {
     "@babel/preset-env": "^7.24.4",
     "cross-env": "^7.0.3",
