@@ -1,0 +1,94 @@
+[app]
+app_name = "RR Manager"
+description = "RR Manager"
+index_title = "Справочная документация"
+
+[ui]
+greetings_text = "Добро пожаловать в RR Manager!"
+tab_general = "Основные"
+tab_addons = "Аддоны"
+tab_configuration = "Настройки"
+tab_debug = "Отладка"
+tab_console = "Консоль"
+
+alt_confirm = "Подтвердить"
+confirm_system_clean_up_msg = "Хотите запустить скрипт очистки системного раздела?"
+confirm_system_clean_up_title = "Подтверждение очистки системы"
+
+upload_file_dialog_title = "Загрузка файла"
+
+loading_text = "Загрузка..."
+system_info = "🖥️Информация о системе:"
+
+rr_actions = "Действия RR Loader"
+required_tasks_is_missing = "В системе отсутствуют следующие необходимые задачи: {0}. Для их создания потребуется ввести пароль. Создать их?"
+tasks_created_msg = "Задачи успешно созданы. Пожалуйста, перезапустите приложение RR Manager."
+share_notfound_msg = "Внимание! Папка {0} не найдена. Пожалуйста, создайте общую папку и перезапустите приложение."
+required_components_missing_title = "Отсутствуют необходимые компоненты"
+required_components_missing_spinner_msg = "Похоже, некоторые необходимые задачи отсутствуют в системе: {0}. Пожалуйста, завершите процесс настройки перед использованием RR Manager."
+update_confirm_title = "Подтверждение обновления"
+uploading_file = "Загрузка файла..."
+save_addons_changes = "Сохранить изменения аддонов"
+
+rr_config_applied = "Конфигурация RR успешно применена. Пожалуйста, перезагрузите NAS для применения изменений."
+checking_dependencies_loader = "Проверка зависимостей..."
+
+section_rr_actions = "Обновление RR Loader"
+run_update = "Загрузить файл"
+
+frm_validation_fill_required_fields = "Пожалуйста, заполните обязательные поля."
+frm_validation_no_change = "Нечего сохранять"
+
+save_addons_btn = "Сохранить аддоны"
+
+col_system = "Система"
+col_installed = "Установлено"
+col_version = "Версия"
+col_name = "Название"
+col_description = "Описание"
+
+
+prompt_update_available_title = "Доступно обновление"
+prompt_update_available_message = "Доступна новая версия RR {0}. Хотите загрузить её через Download Station?"
+
+addons_all = "Все"
+addons_system = "Системные"
+
+from_pc = "С ПК"
+from_ds = "С DiskStation"
+
+image_name = "Имя образа"
+
+#TODO: translate
+[upload_file_dialog]
+lb_select_update_file = "Пожалуйста, выберите файл обновления:"
+choose_file_title = "Выбрать файл обновления"
+select_file = "Выбрать файл"
+file_uploading_succesfull_msg = "Файл успешно загружен. Хотите запустить процедуру обновления?"
+file_uploading_failed_msg = "Ошибка загрузки файла."
+completed = "Завершено:"
+unable_update_rr_msg = "Не удалось обновить RR: {0}. Пожалуйста, загрузите файл и попробуйте снова."
+update_rr_completed = "RR успешно обновлён. Пожалуйста, перезагрузите NAS."
+update_rr_progress_msg = "Обновление RR в процессе: {0}. Статус: {1}."
+update_rr_error_msg = "Не удалось обновить RR. Код статуса: {0}, Причина: {1}"
+update_rr_confirmation = "Текущая версия RR: {0}. Версия файла обновления: {1}"
+update_rr_confirmation_title = "Подтверждение обновления"
+upload_update_file_form_validation_invalid_msg = "Пожалуйста, выберите файл update/updateAll перед загрузкой."
+btn_proceed = "Продолжить"
+
+[health_panel]
+btn_from_pc = "С ПК"
+btn_from_ds = "С DiskStation"
+
+[update_available_dialog]
+checkbox_dont_show_again = "Больше не показывать"
+
+[widget]
+danger_status = "Опасно!"
+danger_status_message = "RR работает неправильно."
+
+attention_status = "Внимание!"
+attention_status_message = "RR ожидает перезагрузки."
+
+good_status = "Исправен"
+good_status_message = "RR работает нормально."
