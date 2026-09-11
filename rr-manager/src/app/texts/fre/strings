@@ -1,0 +1,94 @@
+[app]
+app_name = "RR Manager"
+description = "RR Manager"
+index_title = "Documentation d'aide"
+
+[ui]
+greetings_text = "Bienvenue dans RR Manager !"
+tab_general = "Général"
+tab_addons = "Add-ons"
+tab_configuration = "Paramètres"
+tab_debug = "Débogage"
+tab_console = "Console"
+
+alt_confirm = "Confirmer"
+confirm_system_clean_up_msg = "Voulez-vous exécuter le script de nettoyage de la partition système ?"
+confirm_system_clean_up_title = "Confirmer le nettoyage du système"
+
+upload_file_dialog_title = "Télécharger un fichier"
+
+loading_text = "Chargement..."
+system_info = "🖥️Info système :"
+
+rr_actions = "Actions du chargeur RR"
+required_tasks_is_missing = "Les tâches requises suivantes {0} sont manquantes dans le système. Cela nécessitera de saisir votre mot de passe. Voulez-vous les créer ?"
+tasks_created_msg = "Les tâches ont été créées avec succès. Veuillez redémarrer l'application RR Manager."
+share_notfound_msg = "Attention ! Le dossier {0} est introuvable. Veuillez créer le partage/dossier et redémarrer l'application."
+required_components_missing_title="Composants requis manquants"
+required_components_missing_spinner_msg="Il semble que certaines tâches requises soient manquantes dans le système : {0}. Veuillez terminer le processus d'intégration avant d'utiliser RR Manager."
+update_confirm_title = "Confirmer la mise à jour"
+uploading_file = "Téléchargement du fichier..."
+save_addons_changes = "Enregistrer les modifications des add-ons"
+
+rr_config_applied="La configuration RR a été appliquée avec succès. Veuillez redémarrer le NAS pour appliquer les changements."
+checking_dependencies_loader="Vérification des dépendances..."
+
+section_rr_actions="Mettre à jour le chargeur RR"
+run_update="Télécharger un fichier"
+
+frm_validation_fill_required_fields="Veuillez remplir le(s) champ(s) obligatoire(s)."
+frm_validation_no_change="Rien à enregistrer"
+
+save_addons_btn="Enregistrer les add-ons"
+
+col_system="Système"
+col_installed="Installé"
+col_version="Version"
+col_name="Nom"
+col_description="Description"
+
+
+prompt_update_available_title="Mise à jour disponible"
+prompt_update_available_message="Une nouvelle version {0} de RR est disponible. Voulez-vous la télécharger via Download Station ?"
+
+addons_all="Tous"
+addons_system="Système"
+
+from_pc="Depuis PC"
+from_ds="Depuis DiskStation"
+
+image_name="Nom de l'image"
+
+#TODO: translate
+[upload_file_dialog]
+lb_select_update_file = "Veuillez sélectionner le fichier de mise à jour :"
+choose_file_title = "Choisir le fichier de mise à jour"
+select_file = "Sélectionner un fichier"
+file_uploading_succesfull_msg = "Le fichier a été téléchargé avec succès. Voulez-vous exécuter la procédure de mise à jour ?"
+file_uploading_failed_msg = "Erreur lors du téléchargement du fichier."
+completed = "Terminé :"
+unable_update_rr_msg = "Impossible de mettre à jour RR : {0}. Veuillez télécharger le fichier et réessayer."
+update_rr_completed = "RR a été mis à jour avec succès. Veuillez redémarrer le NAS."
+update_rr_progress_msg = "Mise à jour de RR en cours : {0}. Statut : {1}."
+update_rr_error_msg = "Impossible de mettre à jour RR. Code statut : {0}, Raison : {1}"
+update_rr_confirmation = "Version actuelle de RR : {0}. Version du fichier de mise à jour : {1}"
+update_rr_confirmation_title = "Confirmer la mise à jour"
+upload_update_file_form_validation_invalid_msg = "Veuillez sélectionner le fichier update/updateAll avant de télécharger."
+btn_proceed = "Procéder"
+
+[health_panel]
+btn_from_pc = "Depuis PC"
+btn_from_ds = "Depuis DiskStation"
+
+[update_available_dialog]
+checkbox_dont_show_again = "Ne plus afficher"
+
+[widget]
+danger_status="Danger !"
+danger_status_message="Votre RR ne fonctionne pas correctement."
+
+attention_status="Attention !"
+attention_status_message="Votre RR attend un redémarrage."
+
+good_status="Sain"
+good_status_message="Votre RR fonctionne correctement."
