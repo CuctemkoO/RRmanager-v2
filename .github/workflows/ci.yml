@@ -73,12 +73,22 @@ jobs:
             ghcr.io/synocommunity/spksrc:latest \
             make arch-${{ matrix.target }}
 
+      - name: Debug SPK location
+        run: |
+          echo "=== Searching for .spk files ==="
+          find . -name "*.spk" -type f
+          echo "=== Listing spksrc directory ==="
+          ls -R spksrc-fork/ 2>/dev/null || true
+          echo "=== Listing rr-manager directory ==="
+          ls -R rr-manager/ 2>/dev/null || true
+
       - name: Upload to Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: packages-${{ matrix.target }}
           path: |
-            spksrc/packages/*.spk
+            **/*.spk
+          if-no-files-found: error
 
       - name: Release
         uses: softprops/action-gh-release@v1
